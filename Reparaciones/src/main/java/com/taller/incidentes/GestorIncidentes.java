@@ -1,5 +1,4 @@
 package com.taller.incidentes;
-
 import com.taller.incidentes.modelo.Incidente;
 
 public class GestorIncidentes {
