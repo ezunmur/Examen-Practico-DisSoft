@@ -2,12 +2,9 @@ package com.taller.incidentes.cadena;
 
 import com.taller.incidentes.modelo.Incidente;
 
-/**
- * Manejador de respaldo (catch-all) que cierra la cadena de
- * responsabilidad. Atiende cualquier incidente que ningun manejador
- * especializado haya podido procesar (equivalente a la rama "else" del
- * codigo original).
- */
+/*Manejador de respaldo (catch-all) que cierra la cadena de
+responsabilidad. Atiende cualquier incidente que ningun manejador
+*/
 public class ManejadorGeneral extends ManejadorIncidente {
 
     private static final double COSTO_BASE = 30.0;

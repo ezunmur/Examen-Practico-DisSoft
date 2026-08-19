@@ -3,7 +3,7 @@ package com.taller.incidentes.cadena;
 import com.taller.incidentes.modelo.Incidente;
 import com.taller.incidentes.modelo.TipoIncidente;
 
-/** Manejador especializado en incidentes de tipo ELECTRICO. */
+/*Incidentes de tipo ELECTRICO. */
 public class ManejadorElectrico extends ManejadorIncidente {
 
     private static final double COSTO_BASE = 100.0;

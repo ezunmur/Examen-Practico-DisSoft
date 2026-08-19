@@ -3,7 +3,8 @@ package com.taller.incidentes.cadena;
 import com.taller.incidentes.modelo.Incidente;
 import com.taller.incidentes.modelo.TipoIncidente;
 
-/** Manejador especializado en incidentes de tipo CARROCERIA. */
+/* Incidentes de tipo CARROCERIA. */
+
 public class ManejadorCarroceria extends ManejadorIncidente {
 
     private static final double COSTO_BASE = 200.0;
