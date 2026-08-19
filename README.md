@@ -26,17 +26,17 @@ Se reemplazó esa estructura por Chain of Responsibility:
   siguiente eslabón de la cadena (`siguiente.manejar(...)`). También
   concentra la lógica común a todos los manejadores: validar la
   descripción y calcular el recargo por urgencia.
-- **Manejadores concretos**: `ManejadorMotor`, `ManejadorElectrico`,
+- `Manejadores concretos`: `ManejadorMotor`, `ManejadorElectrico`,
   `ManejadorCarroceria`, `ManejadorNeumaticos`. Cada uno solo conoce su
   propio tipo de incidente, su costo base y sus mensajes.
-- **`ManejadorGeneral`**: manejador de respaldo (catch-all) que cierra la
+- `ManejadorGeneral`: manejador de respaldo (catch-all) que cierra la
   cadena y equivale a la rama `else` del código original (atención
   general para tipos no reconocidos).
-- **`GestorIncidentes`**: ahora solo arma la cadena en su constructor
+- `GestorIncidentes`: ahora solo arma la cadena en su constructor
   (Motor → Eléctrico → Carrocería → Neumáticos → General) y delega el
   procesamiento a `cadenaManejadores.manejar(incidente)`.
 
-**Beneficio principal**: para agregar un nuevo tipo de incidente ya no es
+Beneficio principal: para agregar un nuevo tipo de incidente ya no es
 necesario tocar `GestorIncidentes` ni ningún manejador existente; basta con
 crear una nueva clase que extienda `ManejadorIncidente` e insertarla en la
 cadena (principio abierto/cerrado — Open/Closed Principle).
@@ -48,7 +48,7 @@ categorías del catálogo de Refactoring.Guru:
 
 1. Long Method
    Clase Original`GestorIncidentes.procesarIncidente`.
-   **Por qué es un problema?
+   Por qué es un problema?
    El método tenía más de 10 líneas, concentrando la lógica completa de 4 tipos de incidente distintos:
    - Validación
    - Cálculo de costos
@@ -64,8 +64,8 @@ categorías del catálogo de Refactoring.Guru:
    
 3. Switch Statements
    La secuencia `if (tipo.equals("MOTOR")) ... else if
-   (tipo.equals("ELECTRICO")) ...` en `procesarIncidente`. **Por qué es
-   un problema:** es el equivalente a un `switch` disfrazado de
+   (tipo.equals("ELECTRICO")) ...` en `procesarIncidente`. Por qué es
+   un problema: es el equivalente a un `switch` disfrazado de
    `if/else`.
    Agregar un nuevo tipo de incidente exigía modificar
    directamente este método, en lugar de poder extender el
@@ -125,9 +125,9 @@ categorías del catálogo de Refactoring.Guru:
 
 ## 4. Pruebas unitarias
 
-Se agregaron/ampliaron dos clases de prueba, con un total de **22 pruebas**
-(11 por clase, superando el mínimo de 8 solicitado) y usando **7 tipos
-distintos de comprobaciones** (`assertEquals`, `assertTrue`, `assertFalse`,
+Se agregaron/ampliaron dos clases de prueba, con un total de 22 pruebas
+(11 por clase, superando el mínimo de 8 solicitado) y usando 7 tipos
+distintos de comprobaciones (`assertEquals`, `assertTrue`, `assertFalse`,
 `assertNotNull`, `assertNull`, `assertSame`, `assertThrows`,
 `assertDoesNotThrow`, `assertAll`):
 
